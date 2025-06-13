@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roam in Egypt</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -15,30 +16,25 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="stylee.css" />
-    
   </head>
 
   <body>
-
-
     <header class="navbar">
-      <div class="logo"><img src="logo.png" alt=""></div>
+      <div class="logo"><img src="logo.png" alt="" /></div>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/showcars.html">Show Cars</a></li>
           <li><a href="/history">History</a></li>
 
- 
-
-
           <% if (session.user) { %>
-            <li>Hello, <%= session.user.username %></li>
-            <li><a href="/logout">Logout</a></li>
+          <li>Hello, <%= session.user.username %></li>
+          <li><a href="/logout">Logout</a></li>
           <% } else { %>
-            <li><a href="/login">Log in</a></li>
-            <li><a href="/register">Register</a></li>
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/register">Register</a></li>
           <% } %>
+          <li id="location-info">Detecting location...</li>
         </ul>
       </nav>
     </header>
@@ -52,7 +48,7 @@
           </div>
           <div class="input-group">
             <label for="pickup date">Pickup date</label>
-            <input name="startDate" id="startDate" type="datetime-local"  />
+            <input name="startDate" id="startDate" type="datetime-local" />
           </div>
           <div class="input-group">
             <label for="return">Return date</label>
@@ -67,10 +63,7 @@
       <h1 class="main-title">Roam in Egypt</h1>
     </section>
 
-    
-
     <h1 class="Popular">Popular Places in Egypt To visit</h1>
-    
 
     <section class="Locations container">
       <div class="location-grid">
@@ -90,7 +83,10 @@
 
       <div class="location-grid">
         <div class="location-card">
-          <img src="Best-Things-to-Do-in-North-Coast-Egypt6.jpg" alt="north coast" />
+          <img
+            src="Best-Things-to-Do-in-North-Coast-Egypt6.jpg"
+            alt="north coast"
+          />
           <span>North Coast</span>
         </div>
         <div class="location-card">
@@ -120,7 +116,9 @@
 
         <div class="mybranch">
           <h3>Sharm El Sheikh International Airport</h3>
-          <p>2 El-Salam, Second Sharm Al Shiekh, South Sinai Governorate 8752202</p>
+          <p>
+            2 El-Salam, Second Sharm Al Shiekh, South Sinai Governorate 8752202
+          </p>
           <p>4.8⭐</p>
         </div>
       </div>
@@ -132,17 +130,23 @@
         <div class="reason">
           🚗
           <h3>Wide Selection</h3>
-          <p>From economy to luxury — choose the perfect car for your journey</p>
+          <p>
+            From economy to luxury — choose the perfect car for your journey
+          </p>
         </div>
         <div class="reason">
           💸
           <h3>Affordable Pricing</h3>
-          <p>No hidden fees, transparent rates, and daily discounts you’ll love</p>
+          <p>
+            No hidden fees, transparent rates, and daily discounts you’ll love
+          </p>
         </div>
         <div class="reason">
           🕒
           <h3>24/7 Availability</h3>
-          <p>Book anytime, anywhere — we’re here when you need us, day or night</p>
+          <p>
+            Book anytime, anywhere — we’re here when you need us, day or night
+          </p>
         </div>
         <div class="reason">
           🧼
@@ -185,27 +189,33 @@
           <h4>Ahmed alaa</h4>
           <span>5.0 ⭐</span>
           <p>
-            Nova made my trip so much smoother. Fast service, clean cars, and great rates
+            Nova made my trip so much smoother. Fast service, clean cars, and
+            great rates
           </p>
         </div>
         <div class="testimonial">
-          <h4>kenzy mohamed</h4>
+          <h4>kenzy mahmoud</h4>
           <span>5.0 ⭐</span>
           <p>
-            Great experience with Nova! Easy booking and excellent car quality. Highly recommend!
+            Great experience with Nova! Easy booking and excellent car quality.
+            Highly recommend!
           </p>
         </div>
         <div class="testimonial">
           <h4>moataz mahmoud</h4>
           <span>5.0 ⭐</span>
-          <p>Highly satisfied with Nova's car rental service. Quick, reliable, and affordable!</p>
+          <p>
+            Highly satisfied with Nova's car rental service. Quick, reliable,
+            and affordable!
+          </p>
         </div>
 
         <div class="testimonial">
           <h4>joe goldberg</h4>
           <span>4.3 ⭐</span>
           <p>
-            Nova Rent a Car provided a smooth and positive experience with clean vehicles and friendly service—would rent again.
+            Nova Rent a Car provided a smooth and positive experience with clean
+            vehicles and friendly service—would rent again.
           </p>
         </div>
         <div class="testimonial">
@@ -217,30 +227,48 @@
     </section>
 
     <% if (typeof arr !== "undefined") { %>
-      <div class="welcome-popup">
-        Welcome, <%= arr.at(-1).password %>!
-      </div>
+    <div class="welcome-popup">Welcome, <%= arr.at(-1).password %>!</div>
     <% } %>
     <script>
       const startDateInput = document.getElementById("startDate");
-  const endDateInput = document.getElementById("endDate");
+      const endDateInput = document.getElementById("endDate");
 
-  // Get current date/time and format it as yyyy-MM-ddTHH:mm (HTML5 datetime-local format)
-  const now = new Date();
-  const formattedNow = now.toISOString().slice(0, 16);
+      // Get current date/time and format it as yyyy-MM-ddTHH:mm (HTML5 datetime-local format)
+      const now = new Date();
+      const formattedNow = now.toISOString().slice(0, 16);
 
-  // Set min attribute to prevent past dates
-  startDateInput.min = formattedNow;
-  endDateInput.min = formattedNow;
+      // Set min attribute to prevent past dates
+      startDateInput.min = formattedNow;
+      endDateInput.min = formattedNow;
 
-  // Optional: Auto-set endDate to be same as startDate initially
-  startDateInput.addEventListener("change", () => {
-    endDateInput.min = startDateInput.value;
-    if (endDateInput.value < startDateInput.value) {
-      endDateInput.value = startDateInput.value;
-    }
-  });
+      // Optional: Auto-set endDate to be same as startDate initially
+      startDateInput.addEventListener("change", () => {
+        endDateInput.min = startDateInput.value;
+        if (endDateInput.value < startDateInput.value) {
+          endDateInput.value = startDateInput.value;
+        }
+      });
+    </script>
 
+    <script>
+      fetch("http://ip-api.com/json/")
+        .then((response) => response.json())
+        .then((data) => {
+          const city = data.city;
+          const country = data.country;
+          const locationInfo = document.getElementById("location-info");
+
+          if (city && country) {
+            locationInfo.textContent = `Hello from ${city}, ${country} 👋`;
+          } else {
+            locationInfo.textContent = "Location unavailable.";
+          }
+        })
+        .catch((error) => {
+          console.error("Failed to get location:", error);
+          document.getElementById("location-info").textContent =
+            "Location unavailable.";
+        });
     </script>
   </body>
 </html>
