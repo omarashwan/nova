@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/stylee.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+  <aside class="admin-nav">
+    <div class="admin-header">
+      Car Rental Admin
+    </div>
+
+    <div class="admin-user">
+      Welcome, <%= session.user.username %>!
+    </div>
+
+    <ul>
+      <li><a href="/cars/new">Add New Car</a></li>
+      <li><a href="/cars">Manage Cars</a></li>
+      <li><a href="/bookings">View Bookings</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <h1>Welcome to your Admin Dashboard!</h1>
+    <p>Use the menu on the left to manage cars, bookings, and more.</p>
+  </main>
+
+</body>
+</html>

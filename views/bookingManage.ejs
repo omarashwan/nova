@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Bookings</title>
+  <style>
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Bookings</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Car Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Duration (days)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (bookings.length === 0) { %>
+        <tr>
+          <td colspan="7" style="text-align:center;">No bookings found.</td>
+        </tr>
+      <% } else { %>
+        <% bookings.forEach((booking, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= booking.user ? booking.user.username : 'Unknown user' %></td>
+            <td><%= booking.carId ? booking.carId.name : 'Unknown car' %></td>
+            <td><%= booking.startDate ? booking.startDate.toDateString() : 'N/A' %></td>
+            <td><%= booking.endDate ? booking.endDate.toDateString() : 'N/A' %></td>
+            <td><%= booking.duration %></td>
+            <td><%= booking.status %></td>
+          </tr>
+        <% }); %>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>

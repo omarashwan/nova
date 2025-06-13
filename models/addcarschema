@@ -1,0 +1,16 @@
+const mongoose=require("mongoose");
+const Schema=mongoose.Schema;
+const carschema=new Schema({
+    name: String,
+    type: String,
+    transmission: String,
+    seats: Number,
+    bags: Number,
+    doors: Number,
+    dailyPrice: Number,
+    totalPrice: Number,
+    unlimitedKM: Boolean,
+    imagePath: String
+})
+const car=mongoose.model('car',carschema);
+module.exports=car;

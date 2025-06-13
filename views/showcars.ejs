@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylee.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Nova</div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/showcars.html">Show Cars</a></li>
+          <li><a href="/history">History</a></li>
+
+          <% if (session.user) { %>
+          <li>Hello, <%= session.user.username %></li>
+          <li><a href="/logout">Logout</a></li>
+          <% } else { %>
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/register">Register</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2 class="ques">
+        Which car would you prefer to drive on your next journey?
+      </h2>
+      <select id="sort">
+        <option value="default">Sort By</option>
+        <option value="low-high">Low to high</option>
+        <option value="high-low">High to low</option>
+      </select>
+      <select id="car-type">
+        <option value="default">Car Type</option>
+        <option value="family-car">Family car</option>
+        <option value="sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+        <option value="saloon">Saloon</option>
+        <option value="4x4">4x4</option>
+        <option value="all">all cars</option>
+      </select>
+    </div>
+
+    <div class="allcars">
+      <% cars.forEach(car => { %>
+      <div class="car" data-type="<%= car.type %>">
+        <a href="/car/<%= car._id %>">
+          <img src="/uploads/<%= car.imagePath %>" alt="<%= car.name %>" />
+          <a
+            href="/car/<%= car._id %>?startDate=<%= startDate %>&endDate=<%= endDate %>"
+          ></a>
+        </a>
+
+        <div class="car-info" data-price="<%= car.dailyPrice %>">
+          <h3><%= car.name %></h3>
+          <p class="type"><%= car.type %> <%= car.transmission %></p>
+          <div class="tags">
+            <span>👤 <%= car.seats %></span>
+            <span>🧳 <%= car.bags %></span>
+            <span>⚙️ <%= car.transmission %></span>
+          </div>
+          <div class="price">
+            <p>E£<strong><%= car.dailyPrice %></strong> /day</p>
+            <% if (car.unlimitedKM) { %>
+            <p class="unlimited">✔️ Unlimited kilometers available</p>
+            <% } %>
+          </div>
+          <form action="/book/<%= car._id %>" method="POST">
+            <input type="hidden" name="startDate" value="<%= startDate %>" />
+            <input type="hidden" name="endDate" value="<%= endDate %>" />
+            <button type="submit">Book Now</button>
+          </form>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

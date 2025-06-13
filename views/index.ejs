@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roam in Egypt</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylee.css" />
+    
+  </head>
+
+  <body>
+
+
+    <header class="navbar">
+      <div class="logo"><img src="logo.png" alt=""></div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/showcars.html">Show Cars</a></li>
+          <li><a href="/history">History</a></li>
+
+ 
+
+
+          <% if (session.user) { %>
+            <li>Hello, <%= session.user.username %></li>
+            <li><a href="/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/register">Register</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="main">
+      <div class="form">
+        <form action="showcars.html" method="get">
+          <div class="input-group">
+            <label name="airport name">Airport</label>
+            <input type="text" placeholder="eg. Cairo Airport" />
+          </div>
+          <div class="input-group">
+            <label for="pickup date">Pickup date</label>
+            <input name="startDate" id="startDate" type="datetime-local"  />
+          </div>
+          <div class="input-group">
+            <label for="return">Return date</label>
+            <input name="endDate" id="endDate" type="datetime-local" />
+          </div>
+          <div class="input-group">
+            <label for="return">x</label>
+            <button type="submit">Show cars</button>
+          </div>
+        </form>
+      </div>
+      <h1 class="main-title">Roam in Egypt</h1>
+    </section>
+
+    
+
+    <h1 class="Popular">Popular Places in Egypt To visit</h1>
+    
+
+    <section class="Locations container">
+      <div class="location-grid">
+        <div class="location-card">
+          <img src="Cairo-City.jpg" alt="cairo" />
+          <span>Cairo</span>
+        </div>
+        <div class="location-card">
+          <img src="marsa-alam-coast.jpg" alt="marsa alam" />
+          <span>Marsa alam</span>
+        </div>
+        <div class="location-card">
+          <img src="2022_8_7_17_54_18_456.jpg" alt="sharm el sheikh" />
+          <span>Sharm El sheikh</span>
+        </div>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-card">
+          <img src="Best-Things-to-Do-in-North-Coast-Egypt6.jpg" alt="north coast" />
+          <span>North Coast</span>
+        </div>
+        <div class="location-card">
+          <img src="Qaitbey+Citadel+and+Harbor.png" alt="alexandria" />
+          <span>Alexandria</span>
+        </div>
+        <div class="location-card">
+          <img src="ab_asw_img_1.webp" alt="aswan" />
+          <span>Aswan</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="The-Branch">Highest Rated Branches</h2>
+      <div class="Branches">
+        <div class="mybranch">
+          <h3>Cairo Airport</h3>
+          <p>El Nozha, Cairo Governorate</p>
+          <p>4.7⭐</p>
+        </div>
+        <div class="mybranch">
+          <h3>alexandria borg el arab airport address</h3>
+          <p>Borg Al Arab Al Gadida City, Alexandria Governorate 21934</p>
+          <p>4.3⭐</p>
+        </div>
+
+        <div class="mybranch">
+          <h3>Sharm El Sheikh International Airport</h3>
+          <p>2 El-Salam, Second Sharm Al Shiekh, South Sinai Governorate 8752202</p>
+          <p>4.8⭐</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose-us">
+      <h2>Why choose us?</h2>
+      <div class="reasons">
+        <div class="reason">
+          🚗
+          <h3>Wide Selection</h3>
+          <p>From economy to luxury — choose the perfect car for your journey</p>
+        </div>
+        <div class="reason">
+          💸
+          <h3>Affordable Pricing</h3>
+          <p>No hidden fees, transparent rates, and daily discounts you’ll love</p>
+        </div>
+        <div class="reason">
+          🕒
+          <h3>24/7 Availability</h3>
+          <p>Book anytime, anywhere — we’re here when you need us, day or night</p>
+        </div>
+        <div class="reason">
+          🧼
+          <h3>Clean & Safe</h3>
+          <p>All vehicles are sanitized and safety-checked before every ride</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+      <h2 class="customer">Customer reviews & feedback</h2>
+      <div class="main-rating">
+        <span class="rating-number">4.6</span>
+        <span class="stars">⭐⭐⭐⭐✰</span>
+        <p>
+          Based on 2182 reviews<br /><small
+            >from our Customer Excitement Score survey*</small
+          >
+        </p>
+      </div>
+
+      <h3 class="saying">What our customers are saying</h3>
+      <div class="mini-ratings">
+        <div class="mini-box">
+          <strong>4.8 ⭐</strong>
+          <p>Vehicle handover</p>
+        </div>
+        <div class="mini-box">
+          <strong>4.8 ⭐</strong>
+          <p>The way to Nova</p>
+        </div>
+        <div class="mini-box">
+          <strong>4.6 ⭐</strong>
+          <p>At the Nova branch</p>
+        </div>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <h4>Ahmed alaa</h4>
+          <span>5.0 ⭐</span>
+          <p>
+            Nova made my trip so much smoother. Fast service, clean cars, and great rates
+          </p>
+        </div>
+        <div class="testimonial">
+          <h4>kenzy mohamed</h4>
+          <span>5.0 ⭐</span>
+          <p>
+            Great experience with Nova! Easy booking and excellent car quality. Highly recommend!
+          </p>
+        </div>
+        <div class="testimonial">
+          <h4>moataz mahmoud</h4>
+          <span>5.0 ⭐</span>
+          <p>Highly satisfied with Nova's car rental service. Quick, reliable, and affordable!</p>
+        </div>
+
+        <div class="testimonial">
+          <h4>joe goldberg</h4>
+          <span>4.3 ⭐</span>
+          <p>
+            Nova Rent a Car provided a smooth and positive experience with clean vehicles and friendly service—would rent again.
+          </p>
+        </div>
+        <div class="testimonial">
+          <h4>El Gayar</h4>
+          <span>5.0 ⭐</span>
+          <p>The website is user friendly and the car is very clean</p>
+        </div>
+      </div>
+    </section>
+
+    <% if (typeof arr !== "undefined") { %>
+      <div class="welcome-popup">
+        Welcome, <%= arr.at(-1).password %>!
+      </div>
+    <% } %>
+    <script>
+      const startDateInput = document.getElementById("startDate");
+  const endDateInput = document.getElementById("endDate");
+
+  // Get current date/time and format it as yyyy-MM-ddTHH:mm (HTML5 datetime-local format)
+  const now = new Date();
+  const formattedNow = now.toISOString().slice(0, 16);
+
+  // Set min attribute to prevent past dates
+  startDateInput.min = formattedNow;
+  endDateInput.min = formattedNow;
+
+  // Optional: Auto-set endDate to be same as startDate initially
+  startDateInput.addEventListener("change", () => {
+    endDateInput.min = startDateInput.value;
+    if (endDateInput.value < startDateInput.value) {
+      endDateInput.value = startDateInput.value;
+    }
+  });
+
+    </script>
+  </body>
+</html>

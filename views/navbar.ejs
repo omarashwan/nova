@@ -1,0 +1,9 @@
+<nav>
+    <% if (session.user) { %>
+      <span>Hello, <%= session.user.username %></span>
+      <a href="/logout">Logout</a>
+    <% } else { %>
+      <a href="/register.html">Register</a>
+      <a href="/login.html">Login</a>
+    <% } %>
+  </nav>

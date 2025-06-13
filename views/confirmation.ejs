@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Confirmed</title>
+  <link rel="stylesheet" href="/stylee.css" />
+</head>
+<body>
+  <div class="confirmation-page">
+    <h1>✅ Booking Successful!</h1>
+    <p>Thank you for booking with Nova. We’ve received your request.</p>
+
+    <div class="receipt">
+      <h2>Booking Details</h2>
+      <p><strong>Car:</strong> <%= car.name %></p>
+      <p><strong>Booking Period:</strong> 
+        <%= new Date(booking.startDate).toLocaleDateString() %> to 
+        <%= new Date(booking.endDate).toLocaleDateString() %>
+      </p>
+      <p><strong>Total Days:</strong> <%= diffDays %> day<%= diffDays > 1 ? 's' : '' %></p>
+      <p><strong>Price per day:</strong> $<%= car.dailyPrice.toFixed(2) %></p>
+      <p><strong>Total Price:</strong> $<%= (car.dailyPrice * diffDays).toFixed(2) %></p>
+    </div>
+
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

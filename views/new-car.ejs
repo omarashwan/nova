@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a New Car</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="/stylee.css">
+</head>
+<body>
+    <div id="add-car-form" class="form-container">
+    <h1>Add a New Car</h1>
+    <form action="/cars" method="POST" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Car Name" required>
+
+      <input type="text" name="type" placeholder="Car Type (e.g. SUV, Sedan)" required>
+
+      <select name="transmission" required>
+        <option selected disabled value="">Transmission</option>
+        <option value="Automatic">Automatic</option>
+        <option value="Manual">Manual</option>
+      </select>
+
+      <input type="number" name="seats" placeholder="Number of Seats" required>
+      <input type="number" name="bags" placeholder="Number of Bags" required>
+      <input type="number" name="doors" placeholder="Number of Doors" required>
+
+      <input type="number" name="dailyPrice" placeholder="Daily Price (e.g. 2500)" required>
+
+      <label style="display: block; margin: 10px 0;">
+        <input type="checkbox" name="unlimitedKM"> Unlimited kilometers available
+      </label>
+
+      <input type="file" name="image" accept="image/*" required>
+
+      <button type="submit">Add Car</button>
+    </form>
+  </div>
+ 
